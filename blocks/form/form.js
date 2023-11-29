@@ -120,9 +120,9 @@ function createButton(fd) {
   button.id = fd.Id;
   button.name = fd.Name;
   button.addEventListener('click',
-    () => {
+    (evt) => {
       sampleRUM('click', {
-        source: 'src btn',
+        source: evt.target,
         target: 'tgt btn'
       });
     }
