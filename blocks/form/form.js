@@ -1,4 +1,4 @@
-import {sampleRUM} from '../../scripts/aem';
+import {sampleRUM} from '../../scripts/aem.js';
 
 function constructPayload(form) {
   const payload = {};
@@ -119,6 +119,20 @@ function createButton(fd) {
   button.dataset.redirect = fd.Extra || '';
   button.id = fd.Id;
   button.name = fd.Name;
+  button.addEventListener('click',
+    () => {
+      sampleRUM('click', {
+        source: 'src btn',
+        target: 'tgt btn'
+      });
+    }
+  );
+  /* button.onclick = function(e) {
+    sampleRUM('click', {
+      source: 'src btn',
+      target: 'tgt btn'
+    });
+  }; */
   wrapper.replaceChildren(button);
   return wrapper;
 }
