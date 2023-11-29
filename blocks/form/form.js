@@ -122,8 +122,7 @@ function createButton(fd) {
   button.addEventListener('click',
     (evt) => {
       sampleRUM('click', {
-        source: evt.target,
-        target: 'tgt btn'
+        source: evt.target.textContent
       });
     }
   );
